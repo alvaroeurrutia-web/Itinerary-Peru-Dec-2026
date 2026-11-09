@@ -241,6 +241,47 @@
     .hero { padding: 32px 18px 28px; }
     .content { padding: 20px 14px 60px; }
   }
+
+  /* ── Overview tab: phone portrait layout ── */
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  @media (max-width: 640px) {
+    body.itin-mode .content { padding: 14px 12px 60px; }
+    #panel-overview .overview-intro { margin-bottom: 12px; }
+    #panel-overview .overview-intro h2,
+    .ov-h2 { font-size: 21px; margin-bottom: 10px; }
+
+    /* Arrivals: date + tag on one line, names below */
+    .arrival-rows { margin-bottom: 26px; }
+    .arrival-row { gap: 4px 10px; padding: 8px 0; }
+    .ar-date { min-width: 0; }
+    .ar-who { flex-basis: 100%; font-size: 13px; line-height: 1.45; }
+
+    /* Day by Day: table becomes stacked cards */
+    .ov-table-wrap { overflow-x: visible; }
+    .ov-table, .ov-table tbody { display: block; width: 100%; }
+    .ov-table thead { display: none; }
+    .ov-table tr {
+      display: grid; grid-template-columns: auto 1fr;
+      column-gap: 8px; row-gap: 3px; align-items: center;
+      padding: 9px 2px; border-bottom: 1px solid rgba(232,221,208,0.9);
+    }
+    .ov-table td { display: block; padding: 0; border: none !important; min-width: 0; }
+    .ov-table td:empty { display: none; }
+    .ov-table td.ov-date {
+      grid-column: 1 / -1;
+      font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 400;
+      color: var(--dark); padding: 14px 0 5px; margin-bottom: 4px;
+      border-bottom: 2px solid var(--gold) !important;
+    }
+    .ov-table tr.day-start:first-child td.ov-date { padding-top: 0; }
+    .ov-table td.ov-date span { display: inline; margin-left: 8px; font-family: 'Inter', sans-serif; }
+    .ov-table td.ov-slot { font-weight: 600; min-width: 22px; }
+    .ov-table td:nth-child(4) {
+      grid-column: 1 / -1; font-size: 14px; font-weight: 600; line-height: 1.4;
+      overflow-wrap: anywhere;
+    }
+    .ov-table td.ov-who { grid-column: 1 / -1; line-height: 1.45; }
+  }
 </style>
 </head>
 <body class="itin-mode">
